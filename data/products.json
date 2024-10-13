@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "name": "Dairy Milk",
+      "description": "This is a very sweet delicious and very famous chocolate for its taste.",
+      "price": "4.5",
+      "ingredients": "calcium, milk",
+      "quantity": "194",
+      "url": "./images/dairymilk.jpg",
+      "id": "1"
+    },
+    {
+      "name": "Delicious Cake",
+      "description": "this is a delicious cake",
+      "price": "50",
+      "ingredients": "milk,calcium,vitamin D,Flour,",
+      "quantity": "200",
+      "url": "./images/cake1.jpg",
+      "id": "b4c7"
+    },
+    {
+      "name": "Chocolate Cake",
+      "description": "this is sweet original chocolate cake",
+      "price": "34",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "quantity": "23",
+      "url": "./images/cake2.jpg",
+      "id": "89d9"
+    },
+    {
+      "id": "67bd",
+      "name": "Hovis Bread",
+      "description": "this is a Hovis Fresh Bread",
+      "ingredients": "milk,calcium,vitamin D,Flour,",
+      "price": "5",
+      "quantity": "32",
+      "url": "./images/hovis.jpg"
+    },
+    {
+      "id": "5af1",
+      "name": "Kit Kat",
+      "description": "this is a kitkat",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "2",
+      "quantity": "100",
+      "url": "./images/kitkat.webp"
+    },
+    {
+      "id": "807f",
+      "name": "Cote",
+      "description": "this is a good chocolate",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "15",
+      "quantity": "298",
+      "url": "./images/cote.jpg"
+    },
+    {
+      "id": "a868",
+      "name": "Dawn Bread",
+      "description": "this is bread",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "6",
+      "quantity": "21",
+      "url": "./images/dawn.jpg"
+    },
+    {
+      "id": "b837",
+      "name": "Pastry",
+      "description": "this is a sweet pastry",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "35",
+      "quantity": "68",
+      "url": "./images/pastery.jpg"
+    }
+  ]
+}
