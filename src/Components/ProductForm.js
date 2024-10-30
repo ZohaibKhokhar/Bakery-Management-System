@@ -2,6 +2,7 @@
 import React from 'react';
 import FormField from './FormField';
 import Button from './Button';
+import UnitSelector from './UnitSelector';
 
 const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) => {
   const handleChange = (e) => {
@@ -12,8 +13,15 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
     }));
   };
 
+  const handleUnitChange = (unit) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      unit,
+    }));
+  };
+
   return (
-    <div className="flex justify-center mt-16 items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center mt-4 items-center min-h-screen bg-gray-100">
       <form onSubmit={onSubmit} className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full">
         <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
           {buttonText === "Add Product" ? "Add Product" : "Update Product"}
@@ -39,7 +47,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             placeholder="Enter ingredients"
           />
         </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FormField 
           label="Description" 
           id="description" 
@@ -51,7 +59,6 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
           placeholder="Enter product description"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField 
             label="Price" 
             id="price" 
@@ -62,6 +69,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             type="number" 
             placeholder="Enter price"
           />
+
           <FormField 
             label="Quantity" 
             id="quantity" 
@@ -72,7 +80,9 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             type="number" 
             placeholder="Enter quantity"
           />
-        </div>
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <FormField 
           label="Image URL" 
@@ -84,7 +94,23 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
           placeholder="Enter image URL"
         />
 
-        <Button type="submit" isLoading={isPending}>
+        <FormField 
+          label="Product Category" 
+          id="category" 
+          name="category" 
+          value={product.category} 
+          onChange={handleChange} 
+          required 
+          placeholder="Enter product category"
+        />
+
+        <UnitSelector 
+          selectedUnit={product.unit} 
+          onUnitChange={handleUnitChange} 
+        />
+        </div>
+
+        <Button type="submit" isLoading={isPending} className="mt-6">
           {buttonText}
         </Button>
       </form>

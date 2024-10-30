@@ -9,9 +9,12 @@ const ProductInfo = ({ product }) => (
         <p className="text-lg mt-4 font-semibold text-gray-700">
             Ingredients: <span className="font-normal text-gray-500">{product.ingredients}</span>
         </p>
+        <p className="text-lg mt-4 font-semibold text-gray-700">
+            Categery: <span className="font-normal text-gray-500">{product.category}</span>
+        </p>
 
         <p className="text-lg mt-4 font-semibold text-gray-700">
-            Price: <span className="text-green-500 font-normal">${product.price}</span>
+            Price: <span className="text-green-500 font-normal">${product.price} <span className='font-normal text-gray-500'>per {product.unit}</span></span>
         </p>
         <p className="text-lg mt-4 font-semibold text-gray-700">
             Quantity Available: <span className="text-gray-500 font-normal ">{product.quantity}</span>

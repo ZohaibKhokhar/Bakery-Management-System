@@ -4,37 +4,108 @@
       "id": "7dd7",
       "name": "Hovis Bread",
       "description": "these are hovis bread",
-      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "ingredients": "milk, almonds, dry fruits, vitamins, flour",
       "price": "17",
       "quantity": "100",
-      "url": "hovis.jpg"
+      "url": "hovis.jpg",
+      "category": "Bread",
+      "unit": "pack"
     },
     {
       "id": "5d8e",
       "name": "Beast Cake",
       "description": "this is a cake",
-      "ingredients": "carbonated water, high fructose corn syrup, caramel color, sugar, phosphoric acid, caffeine, citric acid, and natural flavors.",
+      "ingredients": "carbonated water, high fructose corn syrup, caramel color, sugar, phosphoric acid, caffeine, citric acid, and natural flavors",
       "price": "8",
       "quantity": "34",
-      "url": "cake1.jpg"
+      "url": "cake1.jpg",
+      "category": "Cake",
+      "unit": "piece"
     },
     {
       "id": "8fce",
       "name": "Pepsi",
       "description": "this is pepsi",
-      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "ingredients": "milk, almonds, dry fruits, vitamins, flour",
       "price": "3",
       "quantity": "100",
-      "url": "pepsi.jpg"
+      "url": "pepsi.jpg",
+      "category": "Beverage",
+      "unit": "bottle"
     },
     {
       "id": "ea71",
       "name": "Baked Cookie",
       "description": "these are hovis bread",
-      "ingredients": "milk,calcium,vitamin D,Flour,",
+      "ingredients": "milk, calcium, vitamin D, flour",
       "price": "8",
       "quantity": "20",
-      "url": "BakedCookie.webp"
+      "url": "BakedCookie.webp",
+      "category": "Cookie",
+      "unit": "piece"
+    },
+    {
+      "id": "858c",
+      "name": "Love",
+      "description": "these are love bread",
+      "ingredients": "flour,sugar,vitamens",
+      "price": "4",
+      "quantity": "27",
+      "url": "love.png",
+      "unit": "pack",
+      "category": "Bread"
+    },
+    {
+      "id": "215a",
+      "name": "Breyers",
+      "description": "this is an Ice Cream",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "5",
+      "quantity": "56",
+      "url": "breyers.webp",
+      "category": "Ice Cream",
+      "unit": "piece"
+    },
+    {
+      "id": "50b9",
+      "name": "Noosa",
+      "description": "this is an Ice Cream",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "10",
+      "quantity": "67",
+      "url": "noosa.jpg",
+      "category": "Ice Cream"
+    },
+    {
+      "id": "4ee9",
+      "name": "Canyon",
+      "description": "this is a bread",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "9",
+      "quantity": "56",
+      "url": "canyon.webp",
+      "category": "Bread",
+      "unit": "pack"
+    },
+    {
+      "id": "43e1",
+      "name": "Bran Bread",
+      "description": "this is a bread",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "7",
+      "quantity": "34",
+      "url": "bran.webp",
+      "category": "Bread"
+    },
+    {
+      "id": "2423",
+      "name": "Coca Cola Zero",
+      "description": "this is zero suger",
+      "ingredients": "carbonated water, high fructose corn syrup, caramel color, sugar, phosphoric acid, caffeine, citric acid, and natural flavors.",
+      "price": "10",
+      "quantity": "100",
+      "url": "zero.jpeg",
+      "category": "Beverage"
     }
   ]
 }

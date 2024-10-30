@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 
@@ -7,10 +7,30 @@ function Header({ cartCount, onSearch }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const history = useHistory();
 
+  // Debounce function to delay search
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
+  // Debounced search function
+  const debouncedSearch = useCallback(
+    debounce((term) => {
+      if (onSearch) onSearch(term);
+    }, 300),
+    [onSearch]
+  );
+
+  // Update search term and trigger debounced search
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
-    if (onSearch) onSearch(term); 
+    debouncedSearch(term); // Call debounced search
   };
 
   const handleSearchClick = () => {
@@ -24,10 +44,10 @@ function Header({ cartCount, onSearch }) {
 
   return (
     <nav className="bg-blue-500 p-2 fixed top-0 w-full z-10 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container-fluid mx-auto flex justify-between items-center">
         {/* KING BAKERS logo */}
         <Link
-          className="text-white text-3xl font-bold tracking-wide px-4 py-1 hover:text-yellow-300 no-underline transition duration-300 ease-in-out"
+          className="text-white text-3xl font-bold tracking-wide  py-1 hover:text-yellow-300 no-underline transition duration-300 ease-in-out"
           to="/"
           style={{ fontFamily: "'Poppins', sans-serif" }}
         >
