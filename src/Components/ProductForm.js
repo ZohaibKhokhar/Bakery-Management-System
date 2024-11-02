@@ -21,8 +21,8 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
   };
 
   return (
-    <div className="flex justify-center mt-4 items-center min-h-screen bg-gray-100">
-      <form onSubmit={onSubmit} className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full">
+    <div className="flex justify-center mt-4 items-center min-h-screen ">
+      <form onSubmit={onSubmit} className="bg-white p-8  shadow-lg max-w-4xl w-full">
         <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
           {buttonText === "Add Product" ? "Add Product" : "Update Product"}
         </h2>

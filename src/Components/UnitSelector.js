@@ -2,19 +2,19 @@
 import React from 'react';
 
 const UnitSelector = ({ selectedUnit, onUnitChange }) => {
-  const units = ["piece", "pack", "bottle", "box", "loaf", "dozen"];
+  const units = ["piece", "pack", "bottle", "box", "loaf", "dozen","kg"];
 
   return (
     <div className="">
-      <label htmlFor="unit" className="block text-gray-700 font-normal mb-2">Unit</label>
+      <label htmlFor="unit" className="block text-gray-700 mb-2">Unit</label>
       <select
         id="unit"
         name="unit"
         value={selectedUnit}
         onChange={(e) => onUnitChange(e.target.value)}
         required
-        className="w-full p-2 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white text-gray-700"
-      >
+        className="w-full p-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
         <option value="" disabled>Select unit</option>
         {units.map((unit) => (
           <option key={unit} value={unit}>

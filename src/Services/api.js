@@ -1,4 +1,3 @@
-// src/services/api.js
 const BASE_URL = 'http://localhost:8000';
 
 // Fetch all products
@@ -19,7 +18,7 @@ export const addProduct = async (product) => {
     const response = await fetch(`${BASE_URL}/products`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
+      body: JSON.stringify(product),
     });
     if (!response.ok) throw new Error('Failed to add product');
     return await response.json();
@@ -61,10 +60,30 @@ export const updateProduct = async (id, updatedProduct) => {
 export const deleteProduct = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/products/${id}`, {
-      method: 'Delete'
+      method: 'DELETE',
     });
     if (!response.ok) throw new Error('Failed to delete product');
-    return await response.json(); // Optionally, return the response if needed
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// Add a review to a product
+export const addReviewToProduct = async (id, review) => {
+  try {
+    const product = await getProduct(id);
+    const updatedReviews = [...product.reviews, review];
+
+    const response = await fetch(`${BASE_URL}/products/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reviews: updatedReviews }),
+    });
+
+    if (!response.ok) throw new Error('Failed to add review');
+    return await response.json();
   } catch (error) {
     console.error(error);
     throw error;

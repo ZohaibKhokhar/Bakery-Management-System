@@ -1,28 +1,28 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Home from './Pages/Home';
 import AddProducts from './Pages/AddProducts';
 import Cart from './Pages/Cart';
 import ProductDetail from './Components/ProductDetail';
 import NotFound from './Pages/NotFound';
-import { fetchProducts,deleteProduct,addProduct } from './Services/api';
+import { fetchProducts, deleteProduct, addProduct } from './Services/api';
 import ProtectedRoute from './Components/ProtectedRoute';
-import { ThemeProvider } from './Providers';
+import { ThemeProvider,useTheme } from './Providers/ThemeProvider';
 import MainLayout from './Layouts/MainLayout';
 import UpdateProduct from './Pages/updateProduct';
+import ProductList from './Components/ProductList';
 
-function App() {
+function AppContent() {
+  const { theme, toggleTheme } = useTheme();  
   const [cartCount, setCartCount] = useState(0);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
-  const history = useHistory();
   const [isLoading, setIsLoading] = useState(true); 
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -83,10 +83,10 @@ function App() {
   };
 
   return (
-    <ThemeProvider>
+    <div className={`app ${theme}`}> 
       <Router>
-        <MainLayout cartCount={cartCount} onSearch={handleSearch}>
-          <ToastContainer position="top-right" autoClose={3000} />
+        <MainLayout cartCount={cartCount} onSearch={handleSearch} changeTheme={toggleTheme}>
+          <ToastContainer position="top-right" autoClose={1000} />
           <Switch>
             <ProtectedRoute exact path="/">
               <Home
@@ -99,15 +99,20 @@ function App() {
             <ProtectedRoute exact path="/add">
               <AddProducts onAddProduct={addProductHandler} />
             </ProtectedRoute>
-            <Route 
-              exact 
-              path="/cart" 
-              render={(props) => (
+            <ProtectedRoute exact path="/products">
+              <ProductList 
+                 onAddToCart={handleAddToCart}
+                 products={filteredProducts}
+                 isLoading={isLoading}
+                 error={error}
+              />
+            </ProtectedRoute>
+            <Route exact path="/cart" render={(props) => (
                 <Cart {...props} cartProducts={cartProducts} onRemove={onRemove} />
               )}
             />
             <Route exact path="/products/:id">
-              <ProductDetail onDeleteProduct={onDeleteProduct} /> {/* Pass onDeleteProduct here */}
+              <ProductDetail onDeleteProduct={onDeleteProduct} />
             </Route>
             <Route exact path="/update-product/:id">
               <UpdateProduct />
@@ -118,6 +123,14 @@ function App() {
           </Switch>
         </MainLayout>
       </Router>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }

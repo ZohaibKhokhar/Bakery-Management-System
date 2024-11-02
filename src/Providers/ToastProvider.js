@@ -1,4 +1,4 @@
-// src/providers/ToastProvider.js
+
 import React, { createContext, useContext, useState } from 'react';
 
 const ToastContext = createContext();
@@ -17,7 +17,6 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
       {children}
-      {/* Toast Notification Rendering Logic Here */}
     </ToastContext.Provider>
   );
 };

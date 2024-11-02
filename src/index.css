@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* App.css */
+
+.app.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .app.dark {
+    background-color:#000000;
+    color:#000000;
+  }
+  
+  .theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

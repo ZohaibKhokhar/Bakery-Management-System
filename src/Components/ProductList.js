@@ -1,4 +1,3 @@
-// ProductList.js
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 import CategorySelector from './CategorySelector';
