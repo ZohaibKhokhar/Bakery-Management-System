@@ -8,9 +8,10 @@ import CartIcon from './CartIcon';
 import MobileMenu from './MobileMenu';
 import ThemeToggleButton from './ThemeToggleButton';
 
-function Header({ cartCount, onSearch, changeTheme }) {
+function Header({ cartCount, onSearch, changeTheme,theme }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerClass=`p-2 fixed top-0 w-full z-10 shadow-md ${theme==='light'?'bg-blue-500':'bg-blue-900'}`;
 
   const debounce = (func, delay) => {
     let timeoutId;
@@ -40,8 +41,8 @@ function Header({ cartCount, onSearch, changeTheme }) {
   };
 
   return (
-    <nav className="bg-blue-500 p-2 fixed top-0 w-full z-10 shadow-md">
-      <div className="container-fluid mx-auto flex justify-between items-center">
+    <nav className='p-2 fixed top-0 w-full z-10 shadow-md bg-blue-900' >
+      <div className="container-fluid mx-auto flex justify-between items-center" style={{padding:"3px 5px"}}>
         <Logo />
         <button onClick={toggleMobileMenu} className="text-white text-2xl md:hidden focus:outline-none">
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
@@ -50,10 +51,10 @@ function Header({ cartCount, onSearch, changeTheme }) {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center ml-4">
-          <SearchBar searchTerm={searchTerm} onSearchChange={handleSearchChange} onSearch={onSearch} />
+          <SearchBar searchTerm={searchTerm} onSearchChange={handleSearchChange} onSearch={onSearch} theme={theme}/>
         </div>
         <div className="hidden md:flex items-center ml-3">
-          <ThemeToggleButton onClick={changeTheme} />
+          <ThemeToggleButton onClick={changeTheme} theme={theme}  />
         </div>
         <CartIcon cartCount={cartCount} />
       </div>

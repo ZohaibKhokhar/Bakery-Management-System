@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "../useFetch";
-import { getProductUrl } from '../constant';
+import { getProductUrl } from '../Constants/constant';
 import ConfirmationDialog from "./ConfirmationDialog";
 import ProductInfo from './ProductInfo';
 import ProductActions from './ProductActions';
@@ -9,13 +9,14 @@ import ProductImage2 from './ProductImage2';
 import Reviews from './Reviews'; 
 import { addReviewToProduct } from '../Services/api';
 
-const ProductDetail = ({ onDeleteProduct }) => {
+const ProductDetail = ({ onDeleteProduct,theme }) => {
   const { id } = useParams();
   const { data: product, isPending, error } = useFetch(getProductUrl(id));
   const history = useHistory();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [reviews, setReviews] = useState([]); 
   const [isAddingReview, setIsAddingReview] = useState(false);
+  const bgClass=`flex-grow max-w-4xl shadow-xl rounded-lg overflow-hidden ${theme==='light'?'bg-white':'bg-black'}`;
 
 
   useEffect(() => {
@@ -42,8 +43,8 @@ const ProductDetail = ({ onDeleteProduct }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center mt-16 ">
-      <div className="flex-grow max-w-4xl bg-white shadow-xl rounded-lg overflow-hidden">
+    <div className="min-h-screen flex items-center shadow-xl justify-center mt-8 ">
+      <div className={bgClass}>
         {isPending && <div className="text-center py-6">Loading...</div>}
         {error && <div className="text-center py-6 text-red-500">Error: {error}</div>}
 
@@ -52,7 +53,7 @@ const ProductDetail = ({ onDeleteProduct }) => {
             <ProductImage2 url={product.url} name={product.name} />
             
             <div className="flex flex-col justify-between w-full">
-              <ProductInfo product={product} />
+              <ProductInfo product={product} theme={theme} />
 
               <div className="mt-8">
                 <ProductActions 
@@ -61,11 +62,12 @@ const ProductDetail = ({ onDeleteProduct }) => {
                 />
               </div>
                  {/* Reviews Section */}
-                 <Reviews 
+                 {/* <Reviews 
                 reviews={reviews} 
                 onAddReview={handleAddReview} 
                 isAddingReview={isAddingReview}
-              />
+                theme={theme}
+              /> */}
         
             </div>
              
@@ -79,6 +81,7 @@ const ProductDetail = ({ onDeleteProduct }) => {
         onClose={() => setIsDialogOpen(false)} 
         onConfirm={handleDeleteClick} 
         message="Are you sure you want to delete this product?"
+        theme={theme}
       />
     </div>
   );

@@ -2,16 +2,19 @@ import { useState } from 'react';
 import ProductForm from '../Components/ProductForm';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const AddProducts = ({ onAddProduct }) => {
+const AddProducts = ({ onAddProduct,theme }) => {
   const [isPending, setIsPending] = useState(false);
   const history=useHistory();
   const [product, setProduct] = useState({
+    id:0,
     name: '',
     description: '',
     ingredients: '',
     price: '',
     quantity: '',
     url: '',
+    category: '',
+    unit: ''
   });
 
   const handleSubmit = async (e) => {
@@ -34,6 +37,7 @@ const AddProducts = ({ onAddProduct }) => {
       isPending={isPending}
       onSubmit={handleSubmit}
       buttonText="Add Product"
+      theme={theme}
     />
   );
 };

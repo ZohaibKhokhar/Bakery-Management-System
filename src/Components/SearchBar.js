@@ -1,9 +1,16 @@
-// SearchBar.js
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'; // Heroicons v2 import
 
-function SearchBar({ searchTerm, onSearchChange, onSearch }) {
+function SearchBar({ searchTerm, onSearchChange, onSearch, theme }) {
   const history = useHistory();
+
+  // Input field classes based on the theme
+  const inputClass = `px-3 py-2 rounded-lg ${theme === 'light' ? 'text-gray-700 bg-white border-gray-300' : ' text-black border-gray-600'}`;
+
+  // Button classes based on the theme
+  const buttonClass = `ml-2 p-2 rounded-full transition duration-300 ease-in-out
+  bg-white text-blue-900 border-blue-800 hover:bg-blue-600`;
 
   const handleSearchClick = () => {
     onSearch(searchTerm);
@@ -17,14 +24,14 @@ function SearchBar({ searchTerm, onSearchChange, onSearch }) {
         value={searchTerm}
         onChange={onSearchChange}
         placeholder="Search products..."
-        className="px-3 py-2 rounded-lg text-gray-700"
+        className={inputClass}
         style={{ fontFamily: "'Poppins', sans-serif" }}
       />
       <button
         onClick={handleSearchClick}
-        className="ml-2 px-4 py-2 text-blue-700 font-semibold rounded-lg shadow-md bg-white border border-blue-700 hover:bg-blue-100 transition duration-300 ease-in-out"
+        className={buttonClass}
       >
-        Search
+        <MagnifyingGlassIcon className="w-6 h-6" /> {/* Heroicon Search Icon for v2 */}
       </button>
     </div>
   );

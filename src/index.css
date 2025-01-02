@@ -3,16 +3,19 @@
 @tailwind utilities;
 
 /* App.css */
-
+body{
+ 
+}
 .app.light {
     background-color: #ffffff;
     color: #000000;
   }
   
   .app.dark {
-    background-color:#000000;
+    background-color:#2C2F33;
     color:#000000;
   }
+
   
   .theme-toggle-btn {
     position: fixed;

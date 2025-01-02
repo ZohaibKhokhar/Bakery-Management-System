@@ -1,14 +1,26 @@
-// ThemeToggleButton.js
 import React from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/20/solid';  // Heroicons v2 imports
 
-function ThemeToggleButton({ onClick }) {
+function ThemeToggleButton({ onClick, theme }) {
+  console.log('Current theme:', theme);  // Debugging the current theme
+  const themeButtonClass = `ml-2 p-2 rounded-full transition duration-300 ease-in-out
+  bg-blue-700 text-white border-blue-800 hover:bg-blue-600`;
   return (
+    
     <button
       onClick={onClick}
-      className="ml-2 px-4 py-2 text-blue-700 font-semibold rounded-lg shadow-md bg-white border border-blue-700 hover:bg-blue-100 transition duration-300 ease-in-out"
+      className="ml-2 p-2 rounded-full bg-white border border-gray-300 shadow-md hover:bg-gray-100 transition duration-300 ease-in-out"
     >
-      Change Theme
+      {theme === 'light' ? (
+        // Render MoonIcon in light theme
+        <SunIcon className="w-6 h-6 text-yellow-500" />
+      ) : (
+        // Render SunIcon in dark theme
+      
+        <MoonIcon className="w-6 h-6 rounded-full text-blue-900 " />
+      )}
     </button>
+    
   );
 }
 

@@ -14,7 +14,7 @@ const Slider = () => {
     }, [slides.length]);
 
     return (
-        <div className="container-fluid mx-auto mt-16 " style={{"padding-top":"15px"}}
+        <div className="container-fluid mx-auto mt-16 " style={{"paddingTop":"15px"}}
 >
             <div className="relative mb-10">
                 <div className="overflow-hidden rounded-lg">

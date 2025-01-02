@@ -1,46 +1,6 @@
 {
   "products": [
     {
-      "id": "7dd7",
-      "name": "Hovis Bread",
-      "description": "these are hovis bread",
-      "ingredients": "milk, almonds, dry fruits, vitamins, flour",
-      "price": "17",
-      "quantity": "100",
-      "url": "hovis.jpg",
-      "category": "Bread",
-      "unit": "pack",
-      "reviews": [
-        {
-          "name": "John Doe",
-          "rating": 4,
-          "message": "Great bread, very fresh!"
-        },
-        {
-          "name": "Jane Smith",
-          "rating": 5,
-          "message": "Loved it, would buy again!"
-        },
-        {
-          "name": "zohaib ali",
-          "rating": "4",
-          "message": "this is  delicious bread"
-        }
-      ]
-    },
-    {
-      "id": "5d8e",
-      "name": "Beast Cake",
-      "description": "this is a cake",
-      "ingredients": "carbonated water, high fructose corn syrup, caramel color, sugar, phosphoric acid, caffeine, citric acid, and natural flavors",
-      "price": "10",
-      "quantity": "77",
-      "url": "cake1.jpg",
-      "category": "Cake",
-      "unit": "pack",
-      "reviews": []
-    },
-    {
       "id": "8fce",
       "name": "Pepsi",
       "description": "this is pepsi",
@@ -49,26 +9,18 @@
       "quantity": "100",
       "url": "pepsi.jpg",
       "category": "Beverage",
-      "unit": "bottle",
-      "reviews": []
+      "unit": "bottle"
     },
     {
-      "id": "ea71",
+      "id": 0,
       "name": "Baked Cookie",
       "description": "these are hovis bread",
-      "ingredients": "milk, calcium, vitamin D, flour",
-      "price": "8",
-      "quantity": "20",
+      "ingredients": "milk, calcium, vitamin D, flour,eggs,fat,baking soda",
+      "price": 8,
+      "quantity": 20,
       "url": "BakedCookie.webp",
       "category": "Cookie",
-      "unit": "piece",
-      "reviews": [
-        {
-          "name": "zohaib ali",
-          "rating": "3",
-          "message": "this is cookie is good but not the best "
-        }
-      ]
+      "unit": "piece"
     },
     {
       "id": "858c",
@@ -103,13 +55,7 @@
       "quantity": "67",
       "url": "noosa.jpg",
       "category": "Ice Cream",
-      "reviews": [
-        {
-          "name": "zohaib ali",
-          "rating": "1",
-          "message": "i did not like it at all!"
-        }
-      ]
+      "reviews": []
     },
     {
       "id": "4ee9",
@@ -154,7 +100,33 @@
       "quantity": "56",
       "url": "cookies.jpg",
       "category": "Cookie",
-      "unit": "kg"
+      "unit": "kg",
+      "reviews":[]
+    },
+    {
+      "id": "0caf",
+      "name": "Beast cake",
+      "description": "this is a cake",
+      "ingredients": "milk,almonds,dry friuts,vitamins,flour",
+      "price": "22",
+      "quantity": "56",
+      "url": "cake1.jpg",
+      "category": "Cake",
+      "unit":"piece",
+      "reviews":[]
+
+    },
+    {
+      "id": "7712",
+      "name": "Bread Cake",
+      "description": "this is a bread",
+      "ingredients": "milk,calcium,vitamin D,Flour,",
+      "price": "12",
+      "quantity": "56",
+      "url": "cake2.jpg",
+        "category": "Beverage",
+      "unit": "dozen",
+      "reviews":[]
     }
   ]
 }

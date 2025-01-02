@@ -1,6 +1,8 @@
-const CartProduct = ({ product, onRemove }) => {
-    return (
-      <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6 transform hover:scale-105 transition duration-300 ease-in-out">
+const CartProduct = ({ product, onRemove,theme }) => {
+  const cartClass=`shadow-lg rounded-lg p-6 flex items-center space-x-6 transform hover:scale-105 transition duration-300 ease-in-out ${theme==='light'?'bg-white':'bg-black'}`;
+  const pNameClass=`text-xl font-bold mb-2 ${theme==='light'?'text-black':'text-white'}`;
+  return (
+      <div className={cartClass}>
         {/* Product Image */}
         <div className="flex-none w-48 h-48">
           <img
@@ -12,7 +14,7 @@ const CartProduct = ({ product, onRemove }) => {
   
         {/* Product Details */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          <h3 className={pNameClass} style={{ fontFamily: "'Poppins', sans-serif" }}>
             {product.name}
           </h3>
           <p className="text-lg font-bold text-blue-500 mt-4" style={{ fontFamily: "'Poppins', sans-serif" }}>

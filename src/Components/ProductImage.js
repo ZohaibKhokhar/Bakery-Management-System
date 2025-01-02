@@ -6,7 +6,7 @@ const ProductImage = ({ url, alt }) => {
     <img
     src={`/images/${url}`}  
       alt={alt}
-      className="w-full h-48 object-cover rounded-lg mb-4"
+      className="w-full h-48 object-cover rounded-lg mb-2"
     />
   );
 };

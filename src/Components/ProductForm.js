@@ -4,7 +4,9 @@ import FormField from './FormField';
 import Button from './Button';
 import UnitSelector from './UnitSelector';
 
-const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) => {
+const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText,theme }) => {
+  const formClass=`p-8 rounded-md shadow-lg max-w-4xl w-full ${theme==='light'?'bg-white':'bg-black'}`;
+  const titleClass=`text-3xl font-bold mb-8 text-center ${theme==='dark'?'text-blue-500':'text-blue-900'}`;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct((prevProduct) => ({
@@ -22,8 +24,8 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
 
   return (
     <div className="flex justify-center mt-4 items-center min-h-screen ">
-      <form onSubmit={onSubmit} className="bg-white p-8  shadow-lg max-w-4xl w-full">
-        <h2 className="text-3xl font-bold mb-8 text-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <form onSubmit={onSubmit} className={formClass}>
+        <h2 className={titleClass} style={{ fontFamily: "'Poppins', sans-serif" }}>
           {buttonText === "Add Product" ? "Add Product" : "Update Product"}
         </h2>
 
@@ -36,7 +38,9 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             onChange={handleChange} 
             required 
             placeholder="Enter product name"
+            theme={theme}
           />
+        
           <FormField 
             label="Ingredients" 
             id="ingredients" 
@@ -45,6 +49,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             onChange={handleChange} 
             required 
             placeholder="Enter ingredients"
+            theme={theme}
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -57,6 +62,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
           required 
           type="textarea" 
           placeholder="Enter product description"
+          theme={theme}
         />
 
           <FormField 
@@ -68,6 +74,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             required 
             type="number" 
             placeholder="Enter price"
+            theme={theme}
           />
 
           <FormField 
@@ -79,6 +86,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
             required 
             type="number" 
             placeholder="Enter quantity"
+            theme={theme}
           />
 </div>
 
@@ -92,6 +100,7 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
           onChange={handleChange} 
           required 
           placeholder="Enter image URL"
+          theme={theme}
         />
 
         <FormField 
@@ -102,11 +111,13 @@ const ProductForm = ({ product, setProduct, isPending, onSubmit, buttonText }) =
           onChange={handleChange} 
           required 
           placeholder="Enter product category"
+          theme={theme}
         />
 
         <UnitSelector 
           selectedUnit={product.unit} 
           onUnitChange={handleUnitChange} 
+          theme={theme}
         />
         </div>
 
