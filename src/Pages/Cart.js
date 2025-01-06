@@ -8,7 +8,7 @@ const Cart = ({ cartProducts = [], onRemove,theme }) => {
       <div className="flex-grow container mx-auto py-12">
         <div className="text-center mb-8">
           <h2 className={headingClass} style={{ fontFamily: "'Serif', sans-serif" }}>
-            Your Cart
+             Cart
           </h2>
         </div>
 
